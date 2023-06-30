@@ -1,0 +1,63 @@
+<!-- Partie du formulaire d'ajout de congé -->
+<div class="container mt-4">
+  <div class="card">
+    <h1>Congé d'inscription</h1>
+    <form>
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="customername" [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="Entrez votre nom">
+      </div>
+      <div class="form-group">
+        <label>Adresse</label>
+        <input type="text" [(ngModel)]="customeraddress" [ngModelOptions]="{standalone: true}" class="form-control" id="address" placeholder="Entrez votre adresse">
+      </div>
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="text" [(ngModel)]="mobile" [ngModelOptions]="{standalone: true}" class="form-control" id="mobile" placeholder="Entrez votre numéro de téléphone">
+      </div>
+      <div class="form-group">
+        <label>Date de début de congé</label>
+        <input type="date" [(ngModel)]="customerdebut" [ngModelOptions]="{standalone: true}" class="form-control" id="customerdebut" placeholder="Entrez la date de début">
+      </div>
+      <div class="form-group">
+        <label>Date de fin de congé</label>
+        <input type="date" [(ngModel)]="customerfin" [ngModelOptions]="{standalone: true}" class="form-control" id="customerfin" placeholder="Entrez la date de fin">
+      </div>
+      <button type="submit" class="btn btn-primary mt-4" (click)="save()">Soumettre</button>
+    </form>
+  </div>
+</div>
+
+<!-- Partie du tableau des congés -->
+<div class="container mt-4">
+  <h1>Tableau des congés</h1>
+  <table class="table">
+    <thead>
+      <h1 *ngIf="!isResultLoaded">Chargement.................</h1>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Date de début de congé</th>
+        <th scope="col">Date de fin de congé</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let CustomerItem of CustomerArray">
+        <th scope="row">{{CustomerItem.customerid}}</th>
+        <td>{{CustomerItem.customername | uppercase}}</td>
+        <td>{{CustomerItem.customeraddress}}</td>
+        <td>{{CustomerItem.mobile}}</td>
+        <td>{{CustomerItem.customerdebut | date:'yyyy-MM-dd'}}</td>
+        <td>{{CustomerItem.customerfin | date:'yyyy-MM-dd'}}</td>
+        
+        <td>
+          <button type="button" class="btn btn-success" (click)="setUpdate(CustomerItem)">Modifier</button>
+          <button type="button" class="btn btn-danger" (click)="setDelete(CustomerItem)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

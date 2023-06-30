@@ -1,0 +1,44 @@
+
+  export class VotreComposant {
+ 
+    <div class="container mt-4">
+        <div class="card">
+          <h1>Formulaire d'inscription aux congés</h1>
+          <form>
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" [(ngModel)]="customername" [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="Entrez votre nom">
+            </div>
+            <div class="form-group">
+              <label>Adresse</label>
+              <input type="text" [(ngModel)]="customeraddress" [ngModelOptions]="{standalone: true}" class="form-control" id="address" placeholder="Entrez votre adresse">
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="text" [(ngModel)]="mobile" [ngModelOptions]="{standalone: true}" class="form-control" id="mobile" placeholder="Entrez votre numéro de téléphone">
+            </div>
+            <div class="form-group">
+              <label>Date de début de congé</label>
+              <input type="date" [(ngModel)]="customerdebut" [ngModelOptions]="{standalone: true}" class="form-control" id="customerdebut" placeholder="Entrez la date de début">
+            </div>
+            <div class="form-group">
+              <label>Date de fin de congé</label>
+              <input type="date" [(ngModel)]="customerfin" [ngModelOptions]="{standalone: true}" class="form-control" id="customerfin" placeholder="Entrez la date de fin">
+            </div>
+            <button type="submit" class="btn btn-primary mt-4" (click)="save()">Soumettre</button>
+          </form>
+        </div>
+      </div>
+    redirectToCustomerPage() {
+      // Redirigez vers la page customer.do.html
+      window.location.href = 'customer.do.html';
+    }
+  
+    
+  }
+
+  
+  
+  
+  
+    
